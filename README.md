@@ -1,3 +1,5 @@
-Version: 2.1.1
+作者：serenity、bisel
 
-Authors: serenity, bisel.
+更新历史：
+
+v2.1.1  17/4/2025:修改盒子为圆角设计，重写盒子计数器。
