@@ -1,1 +1,1 @@
-# TeX
+This is a elegant \LaTeX template 
