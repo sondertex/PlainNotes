@@ -8,7 +8,7 @@
 
 % ---- 引入宏包
 
-\RequirePackage{amsmath,amsfonts,tikz,graphicx,framed,mdframed,amsthm, amssymb, appendix, bm,  mathrsfs,xcolor,braket,tkz-base,tkz-euclide,pgfplots,hyperref,bookmark, titlesec, pgfplots, booktabs, setspace, changepage, multirow, fancyhdr, helvet, mathtools, derivative}
+\RequirePackage{amsmath,amsfonts,tikz,graphicx,framed,mdframed,amsthm, amssymb, appendix, bm,  mathrsfs,xcolor,braket,tkz-base,tkz-euclide,pgfplots,hyperref,bookmark, titlesec, pgfplots, booktabs, setspace, changepage, multirow, fancyhdr, helvet, mathtools, derivative, bookmark, fontspec, sectsty}
 \RequirePackage[most]{tcolorbox}
 \PassOptionsToPackage{table}{xcolor}
 \pgfplotsset{compat=1.18}
@@ -50,9 +50,9 @@ citecolor=blue}
 \end{flushleft}
 \vspace*{-25pt} % 主标题上方的固定留白
 \begin{flushright}
-  {\textsf{\textcolor{gray}{\footnotesize\textit{LEARN WITH BRAIN}}}} \par
+  {\textsf{\textcolor{gray}{\footnotesize\textit{TWO ROADS DIVERGED IN A YELLOW WOOD}}}} \par
   \vspace*{-15pt} % 主标题上方的固定留白
-  {\textsf{\textcolor{gray}{\footnotesize\textit{YOU CAN NOT CATCH ME UNLESS YOU CAN}}}} \par
+  {\textsf{\textcolor{gray}{\footnotesize\textit{AND SORRY I COULD NOT TRAVEL BOTH}}}} \par
   {\textsf{\@datez}} \par % 日期部分
 \end{flushright}
 }
@@ -130,12 +130,12 @@ citecolor=blue}
 \newenvironment{cbox}[2] % 第一个参数是标题内容，第二个是计数器名称
 {\refstepcounter{#2}% 增加指定计数器
 \begin{tcolorbox}[rounded corners,      % 四角圆角
-                  arc=2mm,              % 圆角半径
-                  title = {\textbf{\csname #2name\endcsname~\thesection.\arabic{#2}\amzcolorboxtitlesep  } #1}, % 动态生成标题
-                  boxrule = 0.7pt, 
+                  arc=0.7mm,              % 圆角半径
+                  title = {\strut\textbf{\csname #2name\endcsname~\thesection.\arabic{#2}\amzcolorboxtitlesep  } #1}, % 动态生成标题并加入 \strut 居中对齐
+                  boxrule = 0.5pt, 
                   fonttitle = \bfseries, 
-                  colframe = black!90, % 边框颜色
-                  colback = black!10, % 背景颜色
+                  colframe = black!80, % 边框颜色
+                  colback = black!2, % 背景颜色
                   width=\linewidth, % 设置宽度
                   breakable, % 启用分页功能
                   enhanced jigsaw, % 提供更灵活的分页布局
@@ -146,6 +146,7 @@ citecolor=blue}
                   after skip=10pt % 整体盒子与正文的下间距
                  ]}
 {\end{tcolorbox}}
+
 
 
 % ---- 计数器对应名字
@@ -159,21 +160,21 @@ citecolor=blue}
 \newcommand{\conclusioncountername}{Conclusion}
 
 % ---- 定义具体环境
-\newenvironment{theorem}[1]
+\newenvironment{thmbox}[1]
 {\begin{cbox}{#1}{theoremcounter}}{\end{cbox}}
-\newenvironment{definition}[1]
+\newenvironment{dfnbox}[1]
 {\begin{cbox}{#1}{definitioncounter}}{\end{cbox}}
-\newenvironment{corollary}[1]
+\newenvironment{corbox}[1]
 {\begin{cbox}{#1}{corollarycounter}}{\end{cbox}}
-\newenvironment{proposition}[1]
+\newenvironment{prpbox}[1]
 {\begin{cbox}{#1}{propositioncounter}}{\end{cbox}}
-\newenvironment{lemma}[1]
+\newenvironment{lembox}[1]
 {\begin{cbox}{#1}{lemmacounter}}{\end{cbox}}
-\newenvironment{axiom}[1]
+\newenvironment{axmbox}[1]
 {\begin{cbox}{#1}{axiomcounter}}{\end{cbox}}
-\newenvironment{convention}[1]
+\newenvironment{cvtbox}[1]
 {\begin{cbox}{#1}{conventioncounter}}{\end{cbox}}
-\newenvironment{conclusion}[1]
+\newenvironment{clsbox}[1]
 {\begin{cbox}{#1}{conclusioncounter}}{\end{cbox}}
 
 % ---- 禁用自带环境
@@ -202,10 +203,8 @@ citecolor=blue}
 % -------------------
 % 字体
 % -------------------
-\renewcommand\qedsymbol{$\squoval$}
-\RequirePackage{fontspec}    
+\renewcommand\qedsymbol{$\squoval$} 
 \renewcommand{\contentsname}{\sffamily Contents}
-\usepackage{sectsty}
 \sectionfont{\sffamily}  
 \subsectionfont{\sffamily}  
 \subsubsectionfont{\sffamily}  
